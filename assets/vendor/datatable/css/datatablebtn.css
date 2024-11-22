@@ -1,0 +1,10 @@
+.mydatatable {
+	background: #fff;
+	padding: 10px;
+	box-shadow: 1px 3px 5px #aaa;
+	border-radius: 5px;
+}
+
+.mdtbtn .btn{
+	margin: 5px 5px;
+}

@@ -9,7 +9,7 @@
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item">
 						<i class="bi bi-house lh-1 pe-3 me-3 border-end border-dark"></i>
-						<a href="index.html" class="text-decoration-none">Home</a>
+						<a href="<?php echo isset($url)? $url :'' ?>" class="text-decoration-none"><?php echo isset($item)? $item :'' ?></a>
 					</li>
 					<li class="breadcrumb-item text-secondary" aria-current="page">
 						Dashboard
@@ -19,7 +19,7 @@
 
 				<!-- Sales stats start -->
 				<div class="ms-auto d-lg-flex d-none flex-row">
-					<div class="d-flex flex-row gap-2">
+					<!-- <div class="d-flex flex-row gap-2">
 						<button class="btn btn-sm btn-primary">Today</button>
 						<button class="btn btn-sm btn-white">7d</button>
 						<button class="btn btn-sm btn-white">2w</button>
@@ -27,7 +27,7 @@
 						<button class="btn btn-sm btn-white">3m</button>
 						<button class="btn btn-sm btn-white">6m</button>
 						<button class="btn btn-sm btn-white">1y</button>
-					</div>
+					</div> -->
 				</div>
 				<!-- Sales stats end -->
 

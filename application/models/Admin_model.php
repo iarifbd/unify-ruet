@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Student_model extends CI_Model {
+class Admin_model extends CI_Model {
 
 
     // Fetch all student or specific student information based on ID
@@ -31,16 +31,29 @@ class Student_model extends CI_Model {
     }
 
     public function StuLedg() {
-
-        $this->db->select('S_Id, SUM(dr) AS Dr, SUM(cr) AS Cr, SUM(dr) - SUM(cr) AS Balance, MAX(status) AS Status');
+        $this->db->select('
+            S_Id,
+            SUM(CASE WHEN achead = "HC" THEN dr ELSE 0 END) AS HallCharge, 
+            SUM(CASE WHEN achead = "HC_DF" THEN dr ELSE 0 END) AS DelayFine,
+            SUM(CASE WHEN achead = "HC_P" THEN cr ELSE 0 END) AS Paid,
+            COUNT(CASE WHEN status = "Due" THEN 1 ELSE NULL END) AS DueCount,
+            SUM(CASE WHEN achead = "HC" THEN dr ELSE 0 END) + 
+            SUM(CASE WHEN achead = "HC_DF" THEN dr ELSE 0 END) - 
+            SUM(CASE WHEN achead = "HC_P" THEN cr ELSE 0 END) AS Outstanding
+        ');
         $this->db->from('studentledger');
         $this->db->group_by('S_Id');
         $this->db->order_by('S_Id', 'ASC');
         $query = $this->db->get();
 
         // Return the result as an array
-        return $query->result_array();
+        if ($query->num_rows() > 0) {
+            return $query->result_array();
+        } else {
+            return [];
+        }
     }
+
 
     public function StuLedgDetails($id = null) {
        $this->db->select('
@@ -52,6 +65,7 @@ class Student_model extends CI_Model {
             SUM(CASE WHEN achead = "HC" THEN dr ELSE 0 END) AS HallCharge, 
             SUM(CASE WHEN achead = "HC_DF" THEN dr ELSE 0 END) AS DelayFine,
             SUM(CASE WHEN achead = "HC_P" THEN cr ELSE 0 END) AS Paid,
+            COUNT(CASE WHEN status = "Due" THEN 1 ELSE NULL END) AS DueCount
             ');
 
         $this->db->from('studentledger');
@@ -78,6 +92,7 @@ class Student_model extends CI_Model {
             SUM(CASE WHEN achead = "HC" THEN dr ELSE 0 END) AS HallCharge, 
             SUM(CASE WHEN achead = "HC_DF" THEN dr ELSE 0 END) AS DelayFine,
             SUM(CASE WHEN achead = "HC_P" THEN cr ELSE 0 END) AS Paid,
+            COUNT(CASE WHEN status = "Due" THEN 1 ELSE NULL END) AS DueCount
             ');
         $this->db->from('studentledger');
         $this->db->where('S_Id', $S_Id);
