@@ -6,6 +6,6 @@ class AdminDas extends CI_Controller {
 	public function index()
 	{
 		$data=array();
-		$this->load->admintemplate('admin/fullpage',$data);
+		$this->load->admintemplate('admin/dashboard',$data);
 	}
 }
