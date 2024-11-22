@@ -73,8 +73,7 @@
 						<a class="nav-link" id="tab-threeAA" data-bs-toggle="tab" href="#threeAA" role="tab"
 							aria-controls="threeAA" aria-selected="false"><i class="bi bi-printer"></i>Ledgers</a>
 					</li>
-					<li class="nav-item" role="presentation">
-						<div class="mdtbtn"></div>
+					<li class="nav-item mdtbtn" role="presentation">
 					</li>
 				</ul>
 				<div class="tab-content" id="customTabContent3">
