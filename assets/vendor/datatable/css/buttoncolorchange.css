@@ -1,0 +1,31 @@
+<style>
+    /* Change the background color of the DataTable buttons */
+    .dt-buttons button {
+        background-color: #4CAF50;  /* Green background */
+        color: white;               /* White text */
+        border: none;               /* Remove border */
+        padding: 10px 20px;         /* Add padding */
+        margin: 5px;                /* Space between buttons */
+        font-size: 14px;            /* Text size */
+        border-radius: 5px;         /* Rounded corners */
+    }
+
+    /* Change color when hovering over the buttons */
+    .dt-buttons button:hover {
+        background-color: #45a049;  /* Darker green on hover */
+        cursor: pointer;
+    }
+
+    /* Customize the specific buttons */
+    .dt-button-collection {
+        background-color: #007BFF;  /* Blue background for the dropdown */
+    }
+
+    .dt-button-collection button {
+        background-color: #007BFF;  /* Blue background for buttons in the dropdown */
+    }
+
+    .dt-button-collection button:hover {
+        background-color: #0056b3;  /* Darker blue on hover */
+    }
+</style>
