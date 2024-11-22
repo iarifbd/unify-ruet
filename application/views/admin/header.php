@@ -15,7 +15,7 @@
         <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
         <meta property="og:type" content="Website">
         <meta property="og:site_name" content="Bootstrap Gallery">
-        <link rel="shortcut icon" href="<?php echo base_url();?>/assets/images/favicon.svg" />
+        <link rel="shortcut icon" href="<?php echo base_url();?>/assets/images/ASDC.png" />
 
         <!-- *************
             ************ CSS Files *************
@@ -32,6 +32,12 @@
 
         <!-- Toastify CSS -->
         <link rel="stylesheet" href="<?php echo base_url();?>assets/vendor/toastify/toastify.css" />
+
+        <!-- datatable -->
+          <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
+          <link href="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.1.6/b-3.1.2/b-html5-3.1.2/b-print-3.1.2/datatables.min.css" rel="stylesheet">
+        <link href="<?php echo base_url(); ?>assets\vendor\datatable\css\datatablebtn.css" rel="stylesheet" />
+
 
     </head>
 

@@ -15,7 +15,7 @@
         <meta property="og:description" content="Marketplace for Bootstrap Admin Dashboards">
         <meta property="og:type" content="Website">
         <meta property="og:site_name" content="Bootstrap Gallery">
-        <link rel="shortcut icon" href="<?php echo base_url();?>/assets/images/favicon.svg" />
+        <link rel="shortcut icon" href="<?php echo base_url();?>/assets/images/ASDC.png" />
 
         <!-- *************
             ************ CSS Files *************
