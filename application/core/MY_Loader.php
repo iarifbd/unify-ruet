@@ -33,5 +33,29 @@ class MY_Loader extends CI_Loader {
         // Load footer
         $this->view('template/footer', $data);
     }
+
+    public function admintemplate($view, $data = array())
+    {
+        // Load header view
+        $this->view('admin/header', $data);
+
+        // Load topnav
+        $this->view('admin/appheader', $data);
+
+        // Load main container start
+        $this->view('admin/maincontainerstart', $data);  
+
+        /*============Dynamic Container========*/
+            $this->view($view, $data); 
+        /////////////////////////////////////////   
+
+        // Load main container end
+        $this->view('admin/maincontainerend', $data);
+
+        // Load footer
+        $this->view('admin/footer', $data);
+    }
+
+
 }
 
