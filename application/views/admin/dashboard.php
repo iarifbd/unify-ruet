@@ -73,6 +73,9 @@
 						<a class="nav-link" id="tab-threeAA" data-bs-toggle="tab" href="#threeAA" role="tab"
 							aria-controls="threeAA" aria-selected="false"><i class="bi bi-printer"></i>Ledgers</a>
 					</li>
+					<li class="nav-item" role="presentation">
+						<div class="mdtbtn"></div>
+					</li>
 				</ul>
 				<div class="tab-content" id="customTabContent3">
 					<div class="tab-pane fade show active" id="oneAA" role="tabpanel">
@@ -82,7 +85,7 @@
 								<div class="card mb-3">
 									<div class="card-body">
 										<div class="table-responsive">
-											<table class="table mydatatable table-bordered m-0">
+											<table class="table table-bordered m-0 mydatatable">
 												<thead>
 													<tr>
 														<th>SL#</th>
