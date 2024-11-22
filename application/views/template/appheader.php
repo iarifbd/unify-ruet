@@ -169,7 +169,7 @@
 								<h5 class="fw-semibold px-3 py-2 text-primary">Messages</h5>
 								<div class="dropdown-item">
 									<div class="d-flex py-2 border-bottom">
-										<img src="<?php echo base_url('');?>/assets/images/userLoad.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
+										<img src="<?php echo base_url('');?>/assets/images/user3.png" class="img-3x me-3 rounded-5" alt="Admin Theme" />
 										<div class="m-0">
 											<h6 class="mb-1 fw-semibold">Angelia Payne</h6>
 											<p class="mb-1">

@@ -15,6 +15,9 @@
         <script src="<?php echo base_url();?>assets/vendor/overlay-scroll/custom-scrollbar.js"></script>
 
         <!-- Toastify JS -->
+        <!-- Set the base URL in a meta tag or a custom data attribute -->
+        <meta name="base_url" content="<?php echo base_url(); ?>">
+        <!-- Include your JavaScript file -->
         <script src="<?php echo base_url();?>assets/vendor/toastify/toastify.js"></script>
         <script src="<?php echo base_url();?>assets/vendor/toastify/custom.js"></script>
 
