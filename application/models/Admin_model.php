@@ -30,13 +30,14 @@ class Admin_model extends CI_Model {
         return $this->db->update('studentinformation', $data); // Update the student
     }
 
-    public function StuLedg() {
+    public function StuLedg() { 
         $this->db->select('
             S_Id,
+            GROUP_CONCAT(DISTINCT gdate ORDER BY gdate ASC SEPARATOR ",") AS DueDates,  
+            COUNT(DISTINCT gdate) AS DueDateCount,  
             SUM(CASE WHEN achead = "HC" THEN dr ELSE 0 END) AS HallCharge, 
             SUM(CASE WHEN achead = "HC_DF" THEN dr ELSE 0 END) AS DelayFine,
             SUM(CASE WHEN achead = "HC_P" THEN cr ELSE 0 END) AS Paid,
-            COUNT(CASE WHEN status = "Due" THEN 1 ELSE NULL END) AS DueCount,
             SUM(CASE WHEN achead = "HC" THEN dr ELSE 0 END) + 
             SUM(CASE WHEN achead = "HC_DF" THEN dr ELSE 0 END) - 
             SUM(CASE WHEN achead = "HC_P" THEN cr ELSE 0 END) AS Outstanding
@@ -53,6 +54,7 @@ class Admin_model extends CI_Model {
             return [];
         }
     }
+
 
 
     public function StuLedgDetails($id = null) {

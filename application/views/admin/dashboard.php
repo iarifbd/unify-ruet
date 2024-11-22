@@ -112,7 +112,7 @@
     		</td>
 			<td><?php echo $value['Paid']; ?></td>
 			<td><?php echo $value['Outstanding']; ?></td>
-			<td><?php echo $value['DueCount']; ?></td>
+			<td><?php echo $value['DueDates']."<br><strong>Total=". $value['DueDateCount']."</strong>"; ?></td>
 		</tr>
 	<?php endforeach; ?>
 	</tbody>
