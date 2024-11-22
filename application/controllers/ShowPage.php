@@ -6,6 +6,6 @@ class ShowPage extends CI_Controller {
 	public function index()
 	{
 		$data=array();
-		$this->load->template('welcome_message', $data);
+		$this->load->template('template/tab', $data);
 	}
 }

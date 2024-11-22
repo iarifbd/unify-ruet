@@ -20,8 +20,15 @@ class MY_Loader extends CI_Loader {
         // Load topnav
         $this->view('template/appheader', $data);
 
-        // Load main container
-        $this->view('template/maincontainer', $data);
+        // Load main container start
+        $this->view('template/maincontainerstart', $data);  
+
+        /*============Dynamic Container========*/
+            $this->view($view, $data); 
+        /////////////////////////////////////////   
+
+        // Load main container end
+        $this->view('template/maincontainerend', $data);
 
         // Load footer
         $this->view('template/footer', $data);
