@@ -91,31 +91,25 @@
 													<tr>
 														<th>SL#</th>
 														<th>Student ID#</th>
-														<th>Total Payble</th>
-														<th>Total Paid</th>
+														<th>Hall Charge</th>
+														<th>Delay Fine</th>
 														<th>Outstanding</th>
 														<th>Countable Months of Due</th>
 														
 													</tr>
 												</thead>
-	<tbody>
-		<?php foreach ($StuLedg as $key => $value) :?>
-		<tr>
-			<td><?php echo ($key+1); ?></td>
-			<td><?php echo $value['S_Id']; ?></td>
-			<td>    
-				<?php 
-			    echo 'Hall Charge = ' . number_format($value['HallCharge'],2) . '/- <br>' . 
-			         'Delay Fine = ' . number_format($value['DelayFine'],2) . '/- <br>' . 
-			         '<strong>Total = ' .number_format($value['HallCharge'] + $value['DelayFine'],2).'BDT</strong>'; 
-			    ?>
-    		</td>
-			<td><?php echo $value['Paid']; ?></td>
-			<td><?php echo $value['Outstanding']; ?></td>
-			<td><?php echo $value['DueDates']."<br><strong>Total=". $value['DueDateCount']."</strong>"; ?></td>
-		</tr>
-	<?php endforeach; ?>
-	</tbody>
+												<tbody>
+													<?php foreach ($StuLedg as $key => $value) :?>
+													<tr>
+														<td><?php echo ($key+1); ?></td>
+														<td><?php echo $value['S_Id']; ?></td>
+														<td><?php echo number_format($value['HallCharge'],2); ?></td>
+														<td><?php echo number_format($value['DelayFine'],2); ?></td>
+														<td><?php echo number_format($value['Outstanding'],2); ?></td>
+														<td><?php echo  $value['DueDateCount']; ?></td>
+													</tr>
+												<?php endforeach; ?>
+												</tbody>
 											</table>
 										</div>										
 									</div>
