@@ -6,7 +6,7 @@ class AdminDas extends CI_Controller {
 	public function index()
 	{
 		// page titel
-		$data['titel']='Admin Dashboard';
+		$data['titel']='Top Sheet Admin Dashboard';
 
 		//bradecum info
 		$data['item']='admin';

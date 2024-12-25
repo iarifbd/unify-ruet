@@ -31,29 +31,33 @@ class Admin_model extends CI_Model {
     }
 
     public function StuLedg() { 
-        $this->db->select('
-            S_Id,
-            GROUP_CONCAT(DISTINCT gdate ORDER BY gdate ASC SEPARATOR ",") AS DueDates,  
-            COUNT(DISTINCT gdate) AS DueDateCount,  
-            SUM(CASE WHEN achead = "HC" THEN dr ELSE 0 END) AS HallCharge, 
-            SUM(CASE WHEN achead = "HC_DF" THEN dr ELSE 0 END) AS DelayFine,
-            SUM(CASE WHEN achead = "HC_P" THEN cr ELSE 0 END) AS Paid,
-            SUM(CASE WHEN achead = "HC" THEN dr ELSE 0 END) + 
-            SUM(CASE WHEN achead = "HC_DF" THEN dr ELSE 0 END) - 
-            SUM(CASE WHEN achead = "HC_P" THEN cr ELSE 0 END) AS Outstanding
-        ');
-        $this->db->from('studentledger');
-        $this->db->group_by('S_Id');
-        $this->db->order_by('S_Id', 'ASC');
-        $query = $this->db->get();
+    $this->db->select('
+        studentledger.S_Id,
+        GROUP_CONCAT(DISTINCT studentledger.gdate ORDER BY studentledger.gdate ASC SEPARATOR ",") AS DueDates,  
+        COUNT(DISTINCT studentledger.gdate) AS DueDateCount,  
+        SUM(CASE WHEN studentledger.achead = "HC" THEN studentledger.dr ELSE 0 END) AS HallCharge, 
+        SUM(CASE WHEN studentledger.achead = "HC_DF" THEN studentledger.dr ELSE 0 END) AS DelayFine,
+        SUM(CASE WHEN studentledger.achead = "HC_P" THEN studentledger.cr ELSE 0 END) AS Paid,
+        SUM(CASE WHEN studentledger.achead = "HC" THEN studentledger.dr ELSE 0 END) + 
+        SUM(CASE WHEN studentledger.achead = "HC_DF" THEN studentledger.dr ELSE 0 END) - 
+        SUM(CASE WHEN studentledger.achead = "HC_P" THEN studentledger.cr ELSE 0 END) AS Outstanding,
+        hall_records.adate,
+        hall_records.vdate
+    ');
+    $this->db->from('studentledger');
+    $this->db->join('hall_records', 'hall_records.S_Id = studentledger.S_Id', 'left'); // Join with hall_records
+    $this->db->group_by('studentledger.S_Id');
+    $this->db->order_by('studentledger.S_Id', 'ASC');
+    $query = $this->db->get();
 
-        // Return the result as an array
-        if ($query->num_rows() > 0) {
-            return $query->result_array();
-        } else {
-            return [];
-        }
+    // Return the result as an array
+    if ($query->num_rows() > 0) {
+        return $query->result_array();
+    } else {
+        return [];
     }
+}
+
 
 
 

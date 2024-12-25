@@ -95,6 +95,8 @@
 														<th>Delay Fine</th>
 														<th>Outstanding</th>
 														<th>Countable Months of Due</th>
+														<th>Allocation Date</th>
+														<th>Seat Cancelled Date</th>
 														
 													</tr>
 												</thead>
@@ -107,6 +109,8 @@
 														<td><?php echo number_format($value['DelayFine'],2); ?></td>
 														<td><?php echo number_format($value['Outstanding'],2); ?></td>
 														<td><?php echo  $value['DueDateCount']; ?></td>
+														<td><?php echo  $value['adate']; ?></td>
+														<td><?php echo  $value['vdate']; ?></td>
 													</tr>
 												<?php endforeach; ?>
 												</tbody>
