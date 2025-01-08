@@ -68,6 +68,16 @@
                                 }
                             ]
                         };
+
+                        // Add page number to the footer
+                        doc['footer'] = function (currentPage, pageCount) {
+                            return {
+                                text: 'Page ' + currentPage + ' of ' + pageCount,
+                                fontSize: 10,
+                                alignment: 'center',
+                                margin: [0, 0, 0, 10]
+                            };
+                        };
                     }
                 },
                 'print'
