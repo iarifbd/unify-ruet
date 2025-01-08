@@ -34,59 +34,59 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
         <script src="https://cdn.datatables.net/v/bs5/jszip-3.10.1/dt-2.1.6/b-3.1.2/b-html5-3.1.2/b-print-3.1.2/datatables.min.js"></script>
         
-<!-- for dataTable -->
-<script>
-    $(document).ready(function() {
-        var table = $('.mydatatable').DataTable({
-            pageLength: 100,
-            lengthMenu: [
-                [10, 100, 500, -1], // The values to be used (10, 100, All)
-                [10, 100, 500, "All"] // Displayed text for the options
-            ],
-            buttons: [
-                'copy', 
-                'csv', 
-                'excel', 
-                {
-                    extend: 'pdf',
-                    text: 'PDF',
-                    orientation: 'portrait', // optional: Set the PDF orientation
-                    pageSize: 'A4',           // optional: Set the PDF page size
-                    customize: function (doc) {
-                        // Get current date and time
-                        var now = new Date();
-                        var dateString = now.toLocaleString();
+        <!-- for dataTable -->
+        <script>
+            $(document).ready(function() {
+                var table = $('.mydatatable').DataTable({
+                    pageLength: 100,
+                    lengthMenu: [
+                        [10, 100, 500, -1], // The values to be used (10, 100, All)
+                        [10, 100, 500, "All"] // Displayed text for the options
+                    ],
+                    buttons: [
+                        'copy', 
+                        'csv', 
+                        'excel', 
+                        {
+                            extend: 'pdf',
+                            text: 'PDF',
+                            orientation: 'portrait', // optional: Set the PDF orientation
+                            pageSize: 'A4',           // optional: Set the PDF page size
+                            customize: function (doc) {
+                                // Get current date and time
+                                var now = new Date();
+                                var dateString = now.toLocaleString();
 
-                        // Add date and time to the PDF header
-                        doc['header'] = {
-                            columns: [
-                                { 
-                                    fontSize: 12,
-                                    text: 'Report generated on: ' + dateString,
-                                    alignment: 'right',
-                                    margin: [0, 10, 20, 0]
-                                }
-                            ]
-                        };
+                                // Add date and time to the PDF header
+                                doc['header'] = {
+                                    columns: [
+                                        { 
+                                            fontSize: 12,
+                                            text: 'Report generated on: ' + dateString,
+                                            alignment: 'right',
+                                            margin: [0, 10, 20, 0]
+                                        }
+                                    ]
+                                };
 
-                        // Add page number to the footer
-                        doc['footer'] = function (currentPage, pageCount) {
-                            return {
-                                text: 'Page ' + currentPage + ' of ' + pageCount,
-                                fontSize: 10,
-                                alignment: 'center',
-                                margin: [0, 0, 0, 10]
-                            };
-                        };
-                    }
-                },
-                'print'
-            ]
-        });
+                                // Add page number to the footer
+                                doc['footer'] = function (currentPage, pageCount) {
+                                    return {
+                                        text: 'Page ' + currentPage + ' of ' + pageCount,
+                                        fontSize: 10,
+                                        alignment: 'center',
+                                        margin: [0, 0, 0, 10]
+                                    };
+                                };
+                            }
+                        },
+                        'print'
+                    ]
+                });
 
-        table.buttons().container()
-            .appendTo('.mdtbtn');
-    });
-</script>
+                table.buttons().container()
+                    .appendTo('.mdtbtn');
+            });
+        </script>
 
 
